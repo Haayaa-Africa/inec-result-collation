@@ -6,7 +6,7 @@ import useFetch from '../../hooks/useFetch';
 export default function state() {
 
     const { state } = useSearchParams();
-    const { data, } = useFetch('/api/lgas?state=' + state)
+    const { data, } = useFetch('http://inec.test/api/lgas?state=' + state)
 
     return (
         <View style={{ backgroundColor: "black", paddingBottom: 50 }}>

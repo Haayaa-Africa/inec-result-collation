@@ -4,7 +4,7 @@ import { Link, Stack } from 'expo-router'
 import useFetch from '../hooks/useFetch';
 
 export default function index() {
-    const { data, } = useFetch('/api/states')
+    const { data, } = useFetch('http://inec.test/api/states')
     return (
         <View style={{ backgroundColor: "black", paddingBottom: 50 }}>
             <Stack.Screen options={{ title: 'States' }} />
