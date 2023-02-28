@@ -37,8 +37,8 @@ export default function state() {
       style={{
         backgroundColor: "black",
         paddingHorizontal: 15,
-        flex: 1,
-        marginBottom: 15,
+        // flex: 1,
+        // marginBottom: 15,
       }}
     >
       <Stack.Screen options={{ title: `${data?.pu ?? ""} Polling Unit` }} />
@@ -46,12 +46,12 @@ export default function state() {
       <View
         style={{
           flex: 1,
-          justifyContent: "flex-end",
+          marginTop: 15,
         }}
       >
         <Pressable
           style={{
-            backgroundColor: "red",
+            backgroundColor: "#e60019",
             padding: 15,
             borderRadius: 5,
             borderWidth: 1,
@@ -65,20 +65,33 @@ export default function state() {
       </View>
 
       {filesContent[0] && (
-        <View>
+        <View
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+            flex: 1,
+          }}
+        >
           <Image
             source={{ uri: filesContent[0].content }}
-            style={{ width: 200, height: 200 }}
+            style={{ width: 200, height: 200, borderRadius: 10 }}
           />
+
+          <View style={{ height: 10 }} />
+
           <Pressable
             onPress={uploadResults}
             style={{
               flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
+              padding: 10,
+              backgroundColor: "#00923f",
+              borderRadius: 5,
+              borderWidth: 1,
             }}
           >
-            <Text style={{ color: "white", fontSize: 24 }}>Upload</Text>
+            <Text style={{ color: "white", fontSize: 18 }}>Sumbit</Text>
           </Pressable>
         </View>
       )}
