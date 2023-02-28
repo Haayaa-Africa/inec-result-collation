@@ -95,6 +95,38 @@ export default function state() {
           </Pressable>
         </View>
       )}
+
+      <View style={{ marginTop: 15 }}>
+        <Text style={{ color: "#fff", fontSize: 24, fontWeight: "bold" }}>
+          File History
+        </Text>
+
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            paddingTop: 15,
+          }}
+        >
+          <View style={{ width: "40%" }}>
+            <View style={{ height: 200, width: 200 }}>
+              <Image
+                style={{
+                  flex: 1,
+                  height: undefined,
+                  width: undefined,
+                }}
+                //   source={{ uri: filesContent[0].content }}
+                resizeMode="contain"
+              />
+            </View>
+          </View>
+
+          <View style={{}}>
+            <Text style={{ color: "#fff" }}>Date Added</Text>
+          </View>
+        </View>
+      </View>
     </View>
   );
 }
