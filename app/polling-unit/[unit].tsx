@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
 import React from 'react'
-import { Link, Stack, useSearchParams } from 'expo-router'
+import { Link, Stack, useRouter, useSearchParams } from 'expo-router'
 import useFetch from '../../hooks/useFetch';
 import { useFilePicker } from 'use-file-picker';
 
@@ -8,6 +8,7 @@ export default function state() {
 
     const { unit } = useSearchParams();
     const { data, } = useFetch('/api/pu?pu=' + unit)
+    const router = useRouter()
 
     const [openFileSelector, { filesContent, loading, errors }] = useFilePicker({
         readAs: 'DataURL',
@@ -27,10 +28,12 @@ export default function state() {
         formData.append('file', file);
         formData.append('pu', unit);
 
-        const response = await fetch('/uploads', {
+        await fetch('/api/upload', {
             method: 'POST',
             body: formData,
         });
+
+        router.replace('/polling-unit/' + unit)
     }
 
     return (
