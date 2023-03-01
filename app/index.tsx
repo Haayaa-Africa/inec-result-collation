@@ -1,9 +1,7 @@
-import { View, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import { Link, Stack } from "expo-router";
 import useFetch from "../hooks/useFetch";
-
-import { Text } from "@ui-kitten/components";
 
 export default function index() {
   const { data } = useFetch("https://obidatti.site/api/states");
