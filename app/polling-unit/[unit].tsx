@@ -6,7 +6,7 @@ import { useFilePicker } from "use-file-picker";
 
 export default function state() {
   const { unit } = useSearchParams();
-  const { data } = useFetch("http://inec.test/api/pu?pu=" + unit);
+  const { data } = useFetch("https://obidatti.site/api/pu?pu=" + unit);
 
   const router = useRouter();
 
@@ -28,7 +28,7 @@ export default function state() {
     formData.append("file", file);
     formData.append("delim", unit);
 
-    const response = await fetch("http://inec.test/api/upload", {
+    const response = await fetch("https://obidatti.site/api/upload", {
       method: "POST",
       body: formData,
     });
