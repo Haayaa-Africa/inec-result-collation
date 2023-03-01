@@ -10,8 +10,9 @@ export default function state() {
   return (
     <View style={{ backgroundColor: "black", paddingBottom: 50 }}>
       <Stack.Screen options={{ title: `${data?.name ?? ""} State` }} />
-      {data?.data?.map((lga: any) => (
+      {data?.data?.map((lga: any, index: number) => (
         <View
+          key={index}
           style={{
             flexDirection: "row",
             justifyContent: "space-between",

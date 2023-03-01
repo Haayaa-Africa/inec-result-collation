@@ -1,15 +1,18 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import { Link, Stack } from "expo-router";
 import useFetch from "../hooks/useFetch";
+
+import { Text } from "@ui-kitten/components";
 
 export default function index() {
   const { data } = useFetch("https://obidatti.site/api/states");
   return (
     <View style={{ backgroundColor: "black", paddingBottom: 50 }}>
-      <Stack.Screen options={{ title: "States" }} />
-      {data?.data.map((state: any) => (
+      <Stack.Screen options={{ title: "Result Collation" }} />
+      {data?.data.map((state: any, index: number) => (
         <View
+          key={index}
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
@@ -23,7 +26,11 @@ export default function index() {
             borderColor: "#454545",
           }}
         >
-          <Text style={{ color: "white", fontSize: 24 }} key={state.state}>
+          <Text
+            category="c1"
+            style={{ color: "white", fontSize: 24 }}
+            key={state.state}
+          >
             {state.state}
           </Text>
 
